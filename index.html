@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GFx | Professional Trading Education</title>
+
+    <style>
+        *{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+:root{
+--black:#050505;
+--dark:#0f0f0f;
+--blue:#2563eb;
+--orange:#f97316;
+--white:#ffffff;
+--gray:#a0a0a0;
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:var(--black);
+color:white;
+overflow-x:hidden;
+}
+
+a{
+text-decoration:none;
+}
+
+.header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(5,5,5,.8);
+backdrop-filter:blur(18px);
+z-index:1000;
+border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+.logo a{
+font-size:32px;
+font-weight:800;
+font-family:'Poppins',sans-serif;
+color:white;
+}
+
+.navbar ul{
+display:flex;
+gap:35px;
+list-style:none;
+}
+
+.navbar a{
+color:white;
+font-weight:500;
+position:relative;
+}
+
+.navbar a::after{
+content:'';
+position:absolute;
+bottom:-8px;
+left:0;
+width:0;
+height:2px;
+background:var(--orange);
+transition:.3s;
+}
+
+.navbar a:hover::after,
+.navbar a.active::after{
+width:100%;
+}
+
+.menu-btn{
+display:none;
+font-size:24px;
+cursor:pointer;
+}
+
+.hero{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:120px 10%;
+background:
+radial-gradient(circle at top right,
+rgba(37,99,235,.2),
+transparent 40%);
+}
+
+.hero-content{
+max-width:900px;
+}
+
+.hero-tag{
+display:inline-block;
+padding:10px 20px;
+border:1px solid rgba(255,255,255,.1);
+border-radius:50px;
+margin-bottom:25px;
+font-size:14px;
+letter-spacing:2px;
+}
+
+.hero h1{
+font-size:5rem;
+font-family:'Poppins',sans-serif;
+line-height:1.1;
+margin-bottom:25px;
+}
+
+.hero h1 span{
+color:var(--blue);
+}
+
+.hero p{
+font-size:1.1rem;
+line-height:1.8;
+color:var(--gray);
+max-width:700px;
+margin:auto;
+}
+
+.hero-buttons{
+margin-top:40px;
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.btn-primary{
+background:linear-gradient(45deg,var(--blue),#4f8cff);
+padding:15px 35px;
+border-radius:50px;
+color:white;
+font-weight:600;
+transition:.3s;
+}
+
+.btn-primary:hover{
+transform:translateY(-5px);
+box-shadow:0 0 30px rgba(37,99,235,.5);
+}
+
+.btn-secondary{
+border:1px solid rgba(255,255,255,.15);
+padding:15px 35px;
+border-radius:50px;
+color:white;
+transition:.3s;
+}
+
+.btn-secondary:hover{
+border-color:var(--orange);
+}
+
+.stats{
+padding:100px 10%;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+}
+
+.stat-card{
+background:var(--dark);
+padding:40px;
+text-align:center;
+border-radius:20px;
+border:1px solid rgba(255,255,255,.05);
+}
+
+.stat-card h2{
+font-size:2.5rem;
+color:var(--orange);
+margin-bottom:10px;
+}
+
+.preview{
+padding:100px 10%;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:60px;
+}
+
+.section-title span{
+color:var(--orange);
+}
+
+.section-title h2{
+font-size:3rem;
+margin-top:10px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+}
+
+.card{
+background:var(--dark);
+padding:40px;
+border-radius:20px;
+transition:.4s;
+border:1px solid rgba(255,255,255,.05);
+}
+
+.card:hover{
+transform:translateY(-10px);
+border-color:var(--blue);
+}
+
+.card i{
+font-size:40px;
+color:var(--orange);
+margin-bottom:20px;
+}
+
+.card h3{
+margin-bottom:15px;
+}
+
+.card p{
+color:var(--gray);
+line-height:1.7;
+}
+
+.cta{
+padding:120px 10%;
+text-align:center;
+}
+
+.cta h2{
+font-size:3rem;
+margin-bottom:20px;
+}
+
+.cta p{
+max-width:700px;
+margin:auto;
+color:var(--gray);
+margin-bottom:35px;
+}
+
+footer{
+padding:80px 10%;
+background:#090909;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:40px;
+}
+
+.footer-grid h3{
+margin-bottom:20px;
+}
+
+.footer-grid a{
+display:block;
+color:#bdbdbd;
+margin-bottom:10px;
+}
+
+.footer-grid a:hover{
+color:var(--blue);
+}
+
+.footer-grid p{
+color:#bdbdbd;
+line-height:1.8;
+}
+
+.copyright{
+text-align:center;
+margin-top:50px;
+padding-top:25px;
+border-top:1px solid rgba(255,255,255,.08);
+color:#777;
+}
+
+@media(max-width:900px){
+
+.hero h1{
+font-size:3rem;
+}
+
+.cards,
+.stats,
+.footer-grid{
+grid-template-columns:1fr;
+}
+
+.navbar{
+display:none;
+}
+
+.menu-btn{
+display:block;
+}
+
+}
+    </style>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/6b5f6b9f0f.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="header">
+
+    <div class="logo">
+        <a href="index.html">GFx</a>
+    </div>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="resources.html">Free Resources</a></li>
+            <li><a href="products.html">Premium Products</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="menu-btn">
+        <i class="fas fa-bars"></i>
+    </div>
+
+</header>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="hero-tag">
+            PROFESSIONAL GOLD SCALPER
+        </span>
+
+        <h1>
+            Master Gold Scalping
+            <span>With Precision</span>
+        </h1>
+
+        <p>
+            Proven strategies, educational resources, and premium trading products designed to help traders build consistency and confidence in the markets.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="resources.html" class="btn-primary">
+                Free Resources
+            </a>
+
+            <a href="products.html" class="btn-secondary">
+                Premium Products
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="stats">
+
+    <div class="stat-card">
+        <h2>3+</h2>
+        <p>Years Experience</p>
+    </div>
+
+    <div class="stat-card">
+        <h2>XAUUSD</h2>
+        <p>Specialization</p>
+    </div>
+
+    <div class="stat-card">
+        <h2>100%</h2>
+        <p>Focused Scalping</p>
+    </div>
+
+</section>
+
+<section class="preview">
+
+    <div class="section-title">
+        <span>WHY GFx</span>
+        <h2>Built For Serious Traders</h2>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <i class="fas fa-chart-line"></i>
+            <h3>Trading Education</h3>
+            <p>
+                Learn practical market concepts and trading frameworks.
+            </p>
+        </div>
+
+        <div class="card">
+            <i class="fas fa-book"></i>
+            <h3>Premium Resources</h3>
+            <p>
+                Access structured materials designed for traders.
+            </p>
+        </div>
+
+        <div class="card">
+            <i class="fas fa-bolt"></i>
+            <h3>Gold Scalping</h3>
+            <p>
+                Focused strategies for XAUUSD execution and consistency.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="cta">
+
+    <h2>Ready To Improve Your Trading?</h2>
+
+    <p>
+        Explore premium resources and discover the trading methods behind GFx.
+    </p>
+
+    <a href="products.html" class="btn-primary">
+        Explore Products
+    </a>
+
+</section>
+
+<footer>
+
+    <div class="footer-grid">
+
+        <div>
+            <h3>GFx</h3>
+            <p>
+                Professional Trading Education & Premium Resources.
+            </p>
+        </div>
+
+        <div>
+            <h3>Quick Links</h3>
+
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="resources.html">Resources</a>
+            <a href="products.html">Products</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+        <div>
+            <h3>Social Media</h3>
+
+            <a href="#">Instagram</a>
+            <a href="#">TikTok</a>
+            <a href="#">YouTube</a>
+            <a href="https://t.me/Kaveejafx">Telegram</a>
+        </div>
+
+        <div>
+            <h3>Email</h3>
+            <p>gfxteam@gmail.com</p>
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © 2026 GFx. All Rights Reserved.
+    </div>
+
+</footer>
+
+<script src="js/main.js"></script>
+
+</body>
+</html>
